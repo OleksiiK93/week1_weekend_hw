@@ -47,17 +47,13 @@ print(total)
 #
 #    So [5, 13, 2] would have sum of 5. 
 total_sum = 0
-sum_after_thirteen = 0
 seen_thirteen = False
 for num in numbers:
     total_sum += num
-    sum_after_thirteen += num
     if num == 13:
         seen_thirteen = True
-        sum_after_thirteen = num
-        total_sum -= sum_after_thirteen
+        total_sum -= 13
     elif seen_thirteen and num != 13:
-        sum_after_thirteen += num
-        total_sum = total_sum - num
+        total_sum -= num
         seen_thirteen = False
 print(total_sum)
