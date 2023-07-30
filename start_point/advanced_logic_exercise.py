@@ -13,13 +13,32 @@ print(even_numbers)
 print(max(numbers) - min(numbers))
 
 # 3. Print True if the list contains a 2 next to a 2 somewhere.
-
+subsequent_twos = False
+index = 0
+for number in numbers:
+    if numbers[index] == 2 and numbers[index + 1] == 2:
+        subsequent_twos = True
+    index += 1
+print(subsequent_twos)
 
 # 4. Print the sum of the numbers, 
 #    BUT ignore any section of numbers starting with a 6 and extending to the next 7.
 #    
 #    So [11, 6, 4, 99, 7, 11] would have sum of 22
-
+total = 0
+sum_after_six = 0
+seen_six = False
+for number in numbers:
+    total += number
+    sum_after_six += number
+    if number == 6:
+        seen_six = True
+        sum_after_six = number
+    elif seen_six and number == 7:
+        total -= sum_after_six
+        sum_after_six = 0
+        seen_six = False
+print(total)
 
 # 5. HARD! Print the sum of the numbers. 
 #    Except the number 13 is very unlucky, so it does not count.
